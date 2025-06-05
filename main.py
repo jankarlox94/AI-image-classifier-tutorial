@@ -14,15 +14,12 @@ from tensorflow.keras.applications.resnet50 import ResNet50
 # from tensorflow.keras.applications.resnet50 import preprocess_input, decode_predictions
 
 def load_model():
-    # model = ResNet50(input_shape = (224,224,3), weights='imagenet')
-    # model = ResNet50(input_shape = (224,224,3), weights='imagenet')
     model = MobileNetV2(input_shape = (224,224,3),weights="imagenet")
     return model
 
 def preprocess_image(uploaded_img):
     img_path = uploaded_img
     img = keras.utils.load_img(img_path, target_size=(224, 224))
-    img._open()
     x = keras.utils.img_to_array(img)
     x = np.expand_dims(x, axis=0)
     x = preprocess_input(x)
