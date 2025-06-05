@@ -18,7 +18,8 @@ def load_model():
     return model
 
 def preprocess_image(uploaded_img):
-    img_path = uploaded_img
+    # img_path = uploaded_img
+    img_path = "test-imgs/doggy.png"
     img = keras.utils.load_img(img_path, target_size=(224, 224))
     x = keras.utils.img_to_array(img)
     x = np.expand_dims(x, axis=0)
